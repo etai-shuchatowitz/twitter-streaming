@@ -23,7 +23,7 @@ print(consumer_key + " " + consumer_secret + " " + access_token + " " + access_t
 class StdOutListener(StreamListener):
 
     def on_data(self, data):
-        encodedData = json.dumps(data).encode('utf-8')
+        encodedData = json.dumps(data)
         respone = firehoseClient.put_record(
             DeliveryStreamName='twitter-data-stream',
             Record={
